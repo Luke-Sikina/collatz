@@ -1,7 +1,17 @@
 package main
 
-func main() {
+import (
+	"os"
+	"strconv"
+	"strings"
+	"fmt"
+)
 
+func main() {
+	start, err := strconv.ParseUint(os.Args[1], 10, 64)
+	if err == nil {
+		println(strings.Trim(fmt.Sprint(Collatz(uint(start))), "[]"))
+	}
 }
 
 func Collatz(start uint) (steps []uint) {
